@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useAccountStore from '../../Zustand/AccountsStore'
 import './Login.css'
 import { useNavigate } from 'react-router-dom'
@@ -35,19 +35,13 @@ function Login() {
         }
     ]
 
-
-    let account = JSON.parse(localStorage.getItem('accounts'));
-
     const handleChange = (event) => {
         setValues((prev) => {
             return {...prev, [event.target.name] : event.target.value}
-        })
-        console.log(values)
-    }
+        })}
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(accounts)
         const foundAccount = accounts.find((account) => {
             if (account.username === values.username) {
                 if (account.Password === values.Password) {

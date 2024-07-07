@@ -51,9 +51,6 @@ function SignUp() {
         Navigate('/' , {replace : true})
     }
 
-    useEffect(() => {
-        localStorage.setItem("accounts", JSON.stringify(addAccount.accounts))
-    }, [addAccount.accounts])
 
     const handleBlur = () => {
         setFocused(true)
